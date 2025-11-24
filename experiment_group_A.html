@@ -1,0 +1,140 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>感情伝達実験</title>
+<style>
+    body { font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", sans-serif; background: #f0f2f5; display: flex; justify-content: center; padding: 20px; }
+    .container { background: white; padding: 40px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); max-width: 600px; width: 100%; }
+    h1 { text-align: center; color: #333; margin-bottom: 30px; font-size: 1.5em; }
+    .section-title { text-align: center; margin: 40px 0 20px; padding: 15px; background: #e0e7ff; color: #333; border-radius: 8px; font-weight: bold; font-size: 1.1em; border-left: 5px solid #3B82F6; }
+    .question-block { margin-bottom: 40px; padding: 20px; background: #fff; border: 1px solid #eee; border-radius: 8px; }
+    .question-title { font-weight: bold; color: #555; margin-bottom: 15px; border-bottom: 2px solid #eee; padding-bottom: 5px; display: inline-block; }
+    .text-display { font-size: 1.4em; font-weight: bold; padding: 25px; background: #f8fafc; border-radius: 8px; margin: 15px 0; text-align: center; color: #1a1a1a; border: 1px solid #e2e8f0; }
+    audio { width: 100%; margin-top: 15px; }
+    .options { margin-top: 20px; }
+    .options label { display: block; margin: 10px 0; cursor: pointer; padding: 12px; border-radius: 6px; border: 1px solid #ddd; transition: background 0.2s; }
+    .options label:hover { background: #f1f5f9; border-color: #3B82F6; }
+    .options input { margin-right: 10px; transform: scale(1.2); }
+    .btn { display: block; width: 100%; padding: 15px; background: #3B82F6; color: white; text-align: center; border: none; border-radius: 8px; font-size: 1.1em; font-weight: bold; cursor: pointer; margin-top: 30px; transition: background 0.2s; }
+    .btn:hover { background: #2563EB; }
+</style>
+</head>
+<body>
+<div class="container">
+    <h1>チャットの印象評価実験</h1>
+    <p>ご協力ありがとうございます。<br>お名前を入力し、以下の各質問について、<b>「メッセージの発信者がどのような感情で送っていると感じるか」</b>を直感で回答してください。</p>
+    <p style="color: #666; font-size: 0.9em; background: #eee; padding: 10px; border-radius: 5px;">※実験は前半（テキストのみ）と後半（音声あり）の2部構成です。<br>※全6問、所要時間は約2分です。</p>
+    <input type="text" id="username" placeholder="あなたのお名前" style="width:100%; padding:12px; margin: 20px 0; box-sizing: border-box; border: 1px solid #ccc; border-radius: 4px;">
+    <form id="experimentForm">
+<div class="section-title">【前半】テキストのみを見て回答してください</div>
+<div class="question-block">
+<div class="question-title">質問 1 / 6</div>
+<div>以下のメッセージを見て、発信者の感情を推測してください：</div>
+<div class="text-display">「わかった」</div>
+<div class="options">
+<label><input type="radio" name="q_02_text" value="joy"> 楽しそう / 嬉しい</label>
+<label><input type="radio" name="q_02_text" value="neutral"> 無感情 / 事務的</label>
+<label><input type="radio" name="q_02_text" value="anger"> 怒っている / 不機嫌</label>
+<label><input type="radio" name="q_02_text" value="sadness"> 悲しい / 落ち込んでいる</label>
+</div></div>
+
+<div class="question-block">
+<div class="question-title">質問 2 / 6</div>
+<div>以下のメッセージを見て、発信者の感情を推測してください：</div>
+<div class="text-display">「それでいいよ」</div>
+<div class="options">
+<label><input type="radio" name="q_04_text" value="joy"> 楽しそう / 嬉しい</label>
+<label><input type="radio" name="q_04_text" value="neutral"> 無感情 / 事務的</label>
+<label><input type="radio" name="q_04_text" value="anger"> 怒っている / 不機嫌</label>
+<label><input type="radio" name="q_04_text" value="sadness"> 悲しい / 落ち込んでいる</label>
+</div></div>
+
+<div class="question-block">
+<div class="question-title">質問 3 / 6</div>
+<div>以下のメッセージを見て、発信者の感情を推測してください：</div>
+<div class="text-display">「へー、そうなんだ」</div>
+<div class="options">
+<label><input type="radio" name="q_06_text" value="joy"> 楽しそう / 嬉しい</label>
+<label><input type="radio" name="q_06_text" value="neutral"> 無感情 / 事務的</label>
+<label><input type="radio" name="q_06_text" value="anger"> 怒っている / 不機嫌</label>
+<label><input type="radio" name="q_06_text" value="sadness"> 悲しい / 落ち込んでいる</label>
+</div></div>
+
+<div class="section-title">【後半】音声を聴いて回答してください</div>
+<div class="question-block">
+<div class="question-title">質問 4 / 6</div>
+<div>以下の音声を再生し、発信者の感情を推測してください：</div>
+<audio controls src="experiment_materials_joy_max/08_あとで話そう_joy_max.mp3"></audio>
+<div class="text-display">「あとで話そう」</div>
+<div class="options">
+<label><input type="radio" name="q_08_audio" value="joy"> 楽しそう / 嬉しい</label>
+<label><input type="radio" name="q_08_audio" value="neutral"> 無感情 / 事務的</label>
+<label><input type="radio" name="q_08_audio" value="anger"> 怒っている / 不機嫌</label>
+<label><input type="radio" name="q_08_audio" value="sadness"> 悲しい / 落ち込んでいる</label>
+</div></div>
+
+<div class="question-block">
+<div class="question-title">質問 5 / 6</div>
+<div>以下の音声を再生し、発信者の感情を推測してください：</div>
+<audio controls src="experiment_materials_joy_max/09_信じられない_joy_max.mp3"></audio>
+<div class="text-display">「信じられない」</div>
+<div class="options">
+<label><input type="radio" name="q_09_audio" value="joy"> 楽しそう / 嬉しい</label>
+<label><input type="radio" name="q_09_audio" value="neutral"> 無感情 / 事務的</label>
+<label><input type="radio" name="q_09_audio" value="anger"> 怒っている / 不機嫌</label>
+<label><input type="radio" name="q_09_audio" value="sadness"> 悲しい / 落ち込んでいる</label>
+</div></div>
+
+<div class="question-block">
+<div class="question-title">質問 6 / 6</div>
+<div>以下の音声を再生し、発信者の感情を推測してください：</div>
+<audio controls src="experiment_materials_joy_max/10_相変わらずだね_joy_max.mp3"></audio>
+<div class="text-display">「相変わらずだね」</div>
+<div class="options">
+<label><input type="radio" name="q_10_audio" value="joy"> 楽しそう / 嬉しい</label>
+<label><input type="radio" name="q_10_audio" value="neutral"> 無感情 / 事務的</label>
+<label><input type="radio" name="q_10_audio" value="anger"> 怒っている / 不機嫌</label>
+<label><input type="radio" name="q_10_audio" value="sadness"> 悲しい / 落ち込んでいる</label>
+</div></div>
+
+    </form>
+    <button class="btn" onclick="downloadCSV()">回答を保存する</button>
+</div>
+
+<script>
+function downloadCSV() {
+    const name = document.getElementById('username').value;
+    if (!name) { alert("お名前を入力してください"); return; }
+    
+    let csvContent = "data:text/csv;charset=utf-8,QuestionID,Condition,SelectedEmotion\n";
+    const form = document.getElementById('experimentForm');
+    const formData = new FormData(form);
+    const totalQuestions = document.querySelectorAll('.question-block').length;
+    const answeredIds = new Set();
+
+    for (let [key, value] of formData.entries()) {
+        const parts = key.split('_'); 
+        const qId = parts[1];
+        const condition = parts[2];
+        csvContent += `${qId},${condition},${value}\n`;
+        answeredIds.add(key);
+    }
+
+    if (answeredIds.size < totalQuestions) {
+        alert("未回答の質問があります。すべての質問に答えてください。");
+        return;
+    }
+
+    const encodedUri = encodeURI(csvContent);
+    const link = document.createElement("a");
+    link.setAttribute("href", encodedUri);
+    link.setAttribute("download", `result_${name}.csv`);
+    document.body.appendChild(link);
+    link.click();
+    alert("回答ファイルがダウンロードされました。このファイルを実験者に送ってください。");
+}
+</script>
+</body>
+</html>
