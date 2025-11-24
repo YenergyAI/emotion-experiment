@@ -3,7 +3,7 @@
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
-<title>感情伝達実験</title>
+<title>印象評価アンケート</title>
 <style>
     body { font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", sans-serif; background: #f0f2f5; display: flex; justify-content: center; padding: 20px; }
     .container { background: white; padding: 40px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); max-width: 600px; width: 100%; }
@@ -19,19 +19,30 @@
     .options input { margin-right: 10px; transform: scale(1.2); }
     .btn { display: block; width: 100%; padding: 15px; background: #3B82F6; color: white; text-align: center; border: none; border-radius: 8px; font-size: 1.1em; font-weight: bold; cursor: pointer; margin-top: 30px; transition: background 0.2s; }
     .btn:hover { background: #2563EB; }
+    .instruction-box { background-color: #fff3cd; border: 1px solid #ffeeba; padding: 15px; border-radius: 5px; margin-bottom: 20px; color: #856404; }
 </style>
 </head>
 <body>
 <div class="container">
-    <h1>チャットの印象評価実験</h1>
-    <p>ご協力ありがとうございます。<br>お名前を入力し、以下の各質問について、<b>「メッセージの発信者がどのような感情で送っていると感じるか」</b>を直感で回答してください。</p>
-    <p style="color: #666; font-size: 0.9em; background: #eee; padding: 10px; border-radius: 5px;">※実験は前半（テキストのみ）と後半（音声あり）の2部構成です。<br>※全6問、所要時間は約2分です。</p>
-    <input type="text" id="username" placeholder="あなたのお名前" style="width:100%; padding:12px; margin: 20px 0; box-sizing: border-box; border: 1px solid #ccc; border-radius: 4px;">
+    <h1>チャットに関する印象評価</h1>
+    
+    <p>ご協力ありがとうございます。<br>
+    お名前を入力し、以下の各メッセージについて、<b>「発信者がどのような感情を持っていると感じるか」</b>を回答してください。</p>
+    
+    <div class="instruction-box">
+        <b>【回答のコツ】</b><br>
+        深く考え込まず、パッと見（またはパッと聴き）で感じた<b>「直感」</b>で選んでください。<br>
+        正解・不正解はありませんので、あなたの率直な印象を教えてください。
+    </div>
+
+    <p style="color: #666; font-size: 0.9em; text-align: right;">※全6問、所要時間は約2分です。</p>
+    
+    <input type="text" id="username" placeholder="あなたのお名前" style="width:100%; padding:12px; margin: 10px 0 20px; box-sizing: border-box; border: 1px solid #ccc; border-radius: 4px;">
     <form id="experimentForm">
 <div class="section-title">【前半】テキストのみを見て回答してください</div>
 <div class="question-block">
 <div class="question-title">質問 1 / 6</div>
-<div>以下のメッセージを見て、発信者の感情を推測してください：</div>
+<div>以下のメッセージを見て、直感的に感じる感情を選んでください：</div>
 <div class="text-display">「わかった」</div>
 <div class="options">
 <label><input type="radio" name="q_02_text" value="joy"> 楽しそう / 嬉しい</label>
@@ -42,7 +53,7 @@
 
 <div class="question-block">
 <div class="question-title">質問 2 / 6</div>
-<div>以下のメッセージを見て、発信者の感情を推測してください：</div>
+<div>以下のメッセージを見て、直感的に感じる感情を選んでください：</div>
 <div class="text-display">「それでいいよ」</div>
 <div class="options">
 <label><input type="radio" name="q_04_text" value="joy"> 楽しそう / 嬉しい</label>
@@ -53,7 +64,7 @@
 
 <div class="question-block">
 <div class="question-title">質問 3 / 6</div>
-<div>以下のメッセージを見て、発信者の感情を推測してください：</div>
+<div>以下のメッセージを見て、直感的に感じる感情を選んでください：</div>
 <div class="text-display">「へー、そうなんだ」</div>
 <div class="options">
 <label><input type="radio" name="q_06_text" value="joy"> 楽しそう / 嬉しい</label>
@@ -65,7 +76,7 @@
 <div class="section-title">【後半】音声を聴いて回答してください</div>
 <div class="question-block">
 <div class="question-title">質問 4 / 6</div>
-<div>以下の音声を再生し、発信者の感情を推測してください：</div>
+<div>以下の音声を再生し、直感的に感じる感情を選んでください：</div>
 <audio controls src="experiment_materials_joy_max/08_あとで話そう_joy_max.mp3"></audio>
 <div class="text-display">「あとで話そう」</div>
 <div class="options">
@@ -77,7 +88,7 @@
 
 <div class="question-block">
 <div class="question-title">質問 5 / 6</div>
-<div>以下の音声を再生し、発信者の感情を推測してください：</div>
+<div>以下の音声を再生し、直感的に感じる感情を選んでください：</div>
 <audio controls src="experiment_materials_joy_max/09_信じられない_joy_max.mp3"></audio>
 <div class="text-display">「信じられない」</div>
 <div class="options">
@@ -89,7 +100,7 @@
 
 <div class="question-block">
 <div class="question-title">質問 6 / 6</div>
-<div>以下の音声を再生し、発信者の感情を推測してください：</div>
+<div>以下の音声を再生し、直感的に感じる感情を選んでください：</div>
 <audio controls src="experiment_materials_joy_max/10_相変わらずだね_joy_max.mp3"></audio>
 <div class="text-display">「相変わらずだね」</div>
 <div class="options">
